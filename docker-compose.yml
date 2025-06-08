@@ -1,0 +1,22 @@
+services:
+  caddymanager:
+    build: .
+    ports:
+      - "8080:8080"  # Backend API and frontend
+      - "80:80"      # Caddy (for reverse proxy)
+      - "443:443"    # Caddy HTTPS
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    restart: unless-stopped
+    environment:
+      - RUST_LOG=info
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  caddy_data:
+  caddy_config:

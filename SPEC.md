@@ -1,0 +1,1 @@
+This is an application which is a UI on top to manage Caddy Proxy. The UI should have a way to add hosts to forward to with ip, port, scheme, name. You can either use Caddy control API or use config files. When we add caddy should be reloaded gracefully.

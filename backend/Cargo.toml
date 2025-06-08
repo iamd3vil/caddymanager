@@ -1,0 +1,13 @@
+[package]
+name = "caddymanager"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = { version = "0.7.9", features = ["macros"] }
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+tower-http = { version = "0.5.2", features = ["cors", "trace", "fs"] }
+regex = "1.10.4"
+nix = { version = "0.28.0", features = ["signal"] }
+lazy_static = "1.4.0"

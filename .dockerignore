@@ -1,0 +1,22 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+SPEC.md
+
+# Build artifacts
+backend/target/
+frontend/caddymanager-ui/node_modules/
+frontend/caddymanager-ui/dist/
+
+# Development files
+.vscode/
+*.log
+*.pid
+
+# OS files
+.DS_Store
+Thumbs.db

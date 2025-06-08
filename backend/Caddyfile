@@ -1,0 +1,19 @@
+# Caddy Configuration File
+# This file contains the base configuration with dynamic host proxying
+
+# Default catch-all server
+:80 {
+    # Health check endpoint for the manager
+    respond /health "OK"
+    
+    # Default fallback response
+    respond "Caddy Proxy Manager - No matching host configuration found" 404
+}
+
+# --- START DYNAMIC CONFIG ---
+jelly.sarat.local {
+    reverse_proxy http://100.103.210.51:8096 {
+        header_up Host {upstream_hostport}
+    }
+}
+# --- END DYNAMIC CONFIG --- 
